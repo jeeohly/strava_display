@@ -1,4 +1,6 @@
-require('dotenv').config();
+import * as dotenv from 'dotenv'
+import fetch from 'node-fetch'
+dotenv.config()
 
 const headers = {
     'Accept': 'application/json, text/plain, */*',
@@ -14,17 +16,15 @@ const body = JSON.stringify({
 
 console.log(body)
 
-
-/*
-const reauthrizeResponse = fetch('https://www.strava.com/oauth/token', {
+const reauthrizeResponse = await fetch('https://www.strava.com/oauth/token', {
     method: 'POST',
     "headers": headers,
     "body": body
 })
 
-const reauthJson = reauthrizeResponse.json()
-const accessToken = reauthJson.access_token
-console.log(accessToken)
-*/
+const reauthJson = await reauthrizeResponse.json()
+const authToken = reauthJson.access_token
+console.log(authToken)
+
 
 
