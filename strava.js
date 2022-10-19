@@ -14,8 +14,9 @@ const body = JSON.stringify({
 
 console.log(body)
 
+
 /*
-const reauthrizeResponse = fetch('https://www.strava.com/api/v3/oauth/token', {
+const reauthrizeResponse = fetch('https://www.strava.com/oauth/token', {
     method: 'POST',
     "headers": headers,
     "body": body
@@ -25,4 +26,5 @@ const reauthJson = reauthrizeResponse.json()
 const accessToken = reauthJson.access_token
 console.log(accessToken)
 */
+
 
