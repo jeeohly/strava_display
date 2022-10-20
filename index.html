@@ -2,6 +2,36 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<script>
+async function getActivities(){
+    const activities = await fetch('https://raw.githubusercontent.com/jeeohly/strava_display/main/activities.json')
+    const activitiesJson = await activities.json()
+    var cadences = []
+    var dates = []
+    for (let i = 0; i < activitiesJson.length; i++) { 
+        const activity = activitiesJson[i]
+        if ("average_cadence" in activity && "start_date" in activity){
+            cadences.push(activity.average_cadence * 2)
+            dates.push(activity.start_date)
+        }
+    }
+    const chart = document.getElementById("cadenceChart")
+    let lineChart = new Chart(chart, {
+        type: 'line',
+        data: {
+            labels: dates.reverse(),
+            datasets: [{
+                label: "Cadences",
+                data: cadences.reverse()
+            }]
+        }
+    })
+}
+getActivities()
+</script>
+
+<canvas id="cadenceChart"></canvas>
 
 </html>

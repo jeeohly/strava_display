@@ -69,17 +69,6 @@ async function getRuns(){
     fs.writeFileSync("activities.json", activities, "utf-8");
 }
 
-const activities = fs.readFileSync("activities.json","utf-8");
-const activitiesJson = JSON.parse(activities)
-var cadences = []
-for (let i = 0; i < activitiesJson.length; i++) { 
-    const activity = activitiesJson[i]
-    if ("average_cadence" in activity){
-        cadences.push(activity.average_cadence * 2)
-    }
-}
-console.log(cadences)
-
 
 
 
