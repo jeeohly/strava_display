@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv'
 import fetch from 'node-fetch'
+import fs from 'fs'
 dotenv.config()
 
 var headers = {
@@ -51,6 +52,7 @@ async function getStats(){
 
 async function getRuns(){
     let page = 1 
+    let activities = []
     while(true){
         const access_token = await getAccessToken()
         const activitiesResponse = await fetch('https://www.strava.com/api/v3/athlete/activities?page=' + page + '&per_page=200&access_token=' + access_token)
@@ -58,10 +60,15 @@ async function getRuns(){
         if(activitiesJson.length == 0){
             break
         }
-        console.log(activitiesJson)
+        activities = activities.concat(activitiesJson)
         page++
     }
+    activities = JSON.stringify(activities);
+    fs.writeFileSync("activities.json", activities, "utf-8");
 }
+
+const test = fs.readFileSync("activities.json","utf-8");
+console.log(JSON.parse(test).length)
 
 
 
