@@ -24,6 +24,8 @@ async function getAccessToken(){
     return reauthJson.access_token
 }
 
+//use the refresh token from here
+//code is retrieved from: https://www.strava.com/oauth/authorize?client_id=<your_client_id>&redirect_uri=http://localhost&response_type=code&scope=activity:read_all
 async function getAccessToken2(){
     const body = JSON.stringify({
         client_id: process.env.STRAVA_CLIENT_ID, 
@@ -53,7 +55,7 @@ async function getStats(){
 async function getRuns(){
     let page = 1 
     let activities = []
-    while(true){
+    while (true){
         const access_token = await getAccessToken()
         const activitiesResponse = await fetch('https://www.strava.com/api/v3/athlete/activities?page=' + page + '&per_page=200&access_token=' + access_token)
         const activitiesJson = await activitiesResponse.json()
@@ -67,8 +69,17 @@ async function getRuns(){
     fs.writeFileSync("activities.json", activities, "utf-8");
 }
 
-const test = fs.readFileSync("activities.json","utf-8");
-console.log(JSON.parse(test).length)
+const activities = fs.readFileSync("activities.json","utf-8");
+const activitiesJson = JSON.parse(activities)
+var cadences = []
+for (let i = 0; i < activitiesJson.length; i++) { 
+    const activity = activitiesJson[i]
+    if ("average_cadence" in activity){
+        cadences.push(activity.average_cadence * 2)
+    }
+}
+console.log(cadences)
+
 
 
 
