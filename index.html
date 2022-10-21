@@ -10,21 +10,37 @@ async function getActivities(){
     const activitiesJson = await activities.json()
     var cadences = []
     var dates = []
+    var speeds = []
     for (let i = 0; i < activitiesJson.length; i++) { 
         const activity = activitiesJson[i]
-        if ("average_cadence" in activity && "start_date" in activity){
+        if ("average_cadence" in activity && "start_date" in activity && "average_speed" in activity){
             cadences.push(activity.average_cadence * 2)
             dates.push(activity.start_date)
+            speeds.push(26.8224 / activity.average_speed)
         }
     }
+    cadences.reverse()
+    dates.reverse()
+    speeds.reverse()
     const chart = document.getElementById("cadenceChart")
     let lineChart = new Chart(chart, {
         type: 'line',
         data: {
-            labels: dates.reverse(),
+            labels: dates,
             datasets: [{
                 label: "Cadences",
-                data: cadences.reverse()
+                data: cadences
+            }]
+        }
+    })
+    const chart2 = document.getElementById("cadenceChart2")
+    let lineChart2 = new Chart(chart2, {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: "Cadences",
+                data: speeds
             }]
         }
     })
@@ -33,5 +49,6 @@ getActivities()
 </script>
 
 <canvas id="cadenceChart"></canvas>
+<canvas id="cadenceChart2"></canvas>
 
 </html>
