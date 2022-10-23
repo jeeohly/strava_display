@@ -21,8 +21,9 @@ async function getAccessToken(){
         "body": body
     })
     const reauthJson = await reauthrizeResponse.json()
+    console.log(reauthJson.access_token)
     return reauthJson.access_token
-}
+}   
 
 //use the refresh token from here
 //code is retrieved from: https://www.strava.com/oauth/authorize?client_id=<your_client_id>&redirect_uri=http://localhost&response_type=code&scope=activity:read_all
@@ -68,7 +69,6 @@ async function getRuns(){
     activities = JSON.stringify(activities);
     fs.writeFileSync("activities.json", activities, "utf-8");
 }
-
 
 
 

@@ -14,7 +14,7 @@ STRAVA_SECRET={from here: https://www.strava.com/settings/api}<br>
 STRAVA_REFRESH_TOKEN={from here: https://www.strava.com/settings/api}<br>
 CODE={from step 6.}
 5. open following url with your client_id and click authorize:<br>
-https://www.strava.com/oauth/authorize?client_id=**{YOUR_CLIENT_ID}**&redirect_uri=http://localhost&response_type=code&scope=activity:read_all
+https://www.strava.com/oauth/authorize?client_id={YOUR_CLIENT_ID}&redirect_uri=http://localhost&response_type=code&scope=activity:read_all
 6. get code argument from url in browser and assign it to CODE variable in .env file 
 
 
