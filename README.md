@@ -8,12 +8,12 @@
 **To use yourself:**
 1. `git clone git@github.com:jeeohly/strava_display.git`
 2. `npm install`
-3. create .env file in root with contents:<br>
+3. create .env file in root with contents:
 ```
-STRAVA_CLIENT_ID="from here: https://www.strava.com/settings/api"<br>
-STRAVA_SECRET="from here: https://www.strava.com/settings/api"<br>
-STRAVA_REFRESH_TOKEN="from here: https://www.strava.com/settings/api"<br>
-CODE={from step 6.}
+STRAVA_CLIENT_ID=from here: https://www.strava.com/settings/api
+STRAVA_SECRET=from here: https://www.strava.com/settings/api
+STRAVA_REFRESH_TOKEN=from here: https://www.strava.com/settings/api
+CODE=from step 6.
 ```
 5. open following url with your client_id and click authorize:<br>
 https://www.strava.com/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=http://localhost&response_type=code&scope=activity:read_all
