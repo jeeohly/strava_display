@@ -25,7 +25,7 @@ Add line to .env file
 CODE=YOUR_CODE
 ```
 7. Get refresh token from console:
-`node strava.js getRefreshToken`
+`node strava.js refresh`
 Add line to .env file: 
 ```
 STRAVA_REFRESH_TOKEN=YOUR_REFRESH_TOKEN
@@ -33,9 +33,9 @@ STRAVA_REFRESH_TOKEN=YOUR_REFRESH_TOKEN
 
 **Commands:**
 - Get your stats:<br>
-`node strava.js getStats`li
-- Get all activities:<br>
-`node strava.js getRuns`
+`node strava.js stats`li
+- Get all activities json:<br>
+`node strava.js runs`
 
 
 

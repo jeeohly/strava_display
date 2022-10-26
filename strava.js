@@ -71,8 +71,18 @@ async function getRuns(){
     fs.writeFileSync("activities.json", activities, "utf-8");
 }
 
-
-
+if (process.argv.includes('access')) {
+    getAccessToken()
+}
+if (process.argv.includes('refresh')) {
+    getRefreshToken()
+}
+if (process.argv.includes('stats')) {
+    getStats()
+}
+if (process.argv.includes('all')) {
+    getRuns()
+}
 
 
 
