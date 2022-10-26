@@ -1,5 +1,5 @@
 # Strava Display
-A tool to get all your Strava runs on a json file. 
+A tool to get all your Strava runs on a json file.<br>
 **API link**: https://developers.strava.com/docs/reference/
 
 **Cadence over time**
