@@ -32,9 +32,9 @@ STRAVA_REFRESH_TOKEN=YOUR_REFRESH_TOKEN
 ```
 
 **Commands:**
-- Get your stats:<br>
-`node strava.js stats`li
-- Get all activities json:<br>
+- Get your stats:
+`node strava.js stats`
+- Get all activities json:
 `node strava.js runs`
 
 
