@@ -21,7 +21,6 @@ async function getAccessToken(){
         "body": body
     })
     const reauthJson = await reauthrizeResponse.json()
-    console.log(reauthJson.access_token)
     return reauthJson.access_token
 }   
 
@@ -70,6 +69,7 @@ async function getRuns(){
     fs.writeFileSync("activities.json", activities, "utf-8");
 }
 
+console.log("test")
 
 
 
