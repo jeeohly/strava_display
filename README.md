@@ -1,5 +1,5 @@
 # Strava Display
-
+A tool to get all your Strava runs on a json file. 
 **API link**: https://developers.strava.com/docs/reference/
 
 **Cadence over time**
@@ -19,14 +19,14 @@ STRAVA_SECRET=YOUR_STRAVA_SECRET
 5. open following url with your YOUR_CLIENT_ID and then click authorize:
 https://www.strava.com/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=http://localhost&response_type=code&scope=activity:read_all
 6. get YOUR_CODE from new url and assign it to CODE variable in .env file:
-http://localhost/?state=&code=YOUR_CODEscope=read,activity:read_all<br>
-Add line to .env file
+http://localhost/?state=&code=YOUR_CODEscope=read,activity:read_all
+7. Add line to .env file:
 ```
 CODE=YOUR_CODE
 ```
-7. Get refresh token from console:
+9. Get refresh token from console:
 `node strava.js refresh`
-Add line to .env file: 
+10. Add line to .env file: 
 ```
 STRAVA_REFRESH_TOKEN=YOUR_REFRESH_TOKEN
 ```
